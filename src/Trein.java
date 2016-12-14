@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 /**
  * Created by Eigenaar on 14-12-2016.
  */
 public class Trein implements TrainBuilder {
     private Wagon w;
+    private ArrayList<Trein> treinen = new ArrayList();
 
     public Trein(){
 
@@ -24,8 +27,9 @@ public class Trein implements TrainBuilder {
     }
 
     @Override
-    public TrainBuilder select() {
-        return null;
+    public TrainBuilder select(int index) {
+        Trein trein = treinen.get(index);
+        return trein;
     }
 
     @Override
