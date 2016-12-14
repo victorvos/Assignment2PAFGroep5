@@ -3,11 +3,21 @@
  */
 public class Wagon implements TrainBuilder {
     private int numSeats;
-    private Wagon w;
+    private Wagon w; // Kan deze weg?
+    private String wgNaam;
 
-    public Wagon(Trein t, int numSeats){
+    //Standaard is de default value van de wagon 20
+    //Je hebt dus bijvoorbeeld een command new wagon x;
+    //--Deze wordt aangemaakt met een default numseats van 20 en zonder TREIN toegekend te hebben
+
+    public Wagon(String wagonNaam) {
+        this.wgNaam = wagonNaam;
+        this.numSeats = 20;
+    }
+
+    public Wagon(String wagonNaam, int numSeats) {
+        this.wgNaam = wagonNaam;
         this.numSeats = numSeats;
-        t.add(w);
     }
 
     @Override
@@ -29,4 +39,8 @@ public class Wagon implements TrainBuilder {
     public int getNumSeats() {
         return 0;
     }
+
+//    public void setNumSeats(int numOfSeats) {
+//        this.numSeats = numOfSeats;
+//    }
 }
