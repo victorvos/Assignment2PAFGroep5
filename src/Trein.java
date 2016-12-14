@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class Trein implements TrainBuilder {
     private Wagon w;
-    private ArrayList<Trein> treinen = new ArrayList();
+    public ArrayList<Wagon> trein = new ArrayList();
 
     public Trein(){
 
@@ -16,9 +16,9 @@ public class Trein implements TrainBuilder {
 
     }
 
-    @Override
-    public void add() {
 
+    public void add(Wagon w) {
+        trein.add(w);
     }
 
     @Override
@@ -34,6 +34,10 @@ public class Trein implements TrainBuilder {
 
     @Override
     public int getNumSeats() {
-        return 0;
+        int amountSeats = 0;
+        for (Wagon w : trein){
+            amountSeats += w.getNumSeats();
+        }
+        return amountSeats;
     }
 }
