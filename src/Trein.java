@@ -4,11 +4,14 @@ import java.util.ArrayList;
  * Created by Eigenaar on 14-12-2016.
  */
 public class Trein implements TrainBuilder {
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    LocalDateTime now = LocalDateTime.now();
     private Wagon w;
+    private Log l;
     public ArrayList<Wagon> trein = new ArrayList();
 
-    public Trein(){
-
+    public Trein(String trnm){
+        l.makeLog(now, "train: " + trnm + " has been created");
     }
 
     @Override

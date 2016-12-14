@@ -16,13 +16,12 @@ public class Log{
 		return curDate;
 	}
 
-    public String makeLog(String curDate, String type, String command) throws IOException {
+    public String makeLog(String curDate, String Output) throws IOException {
         BufferedWriter output = new BufferedWriter(new FileWriter("log.txt", true));
-        String logLine = curDate +""+ type +""+ command;
+        String logLine = curDate + " " + Output;
         output.append(logLine);
         output.newLine();
         output.close();
         return "done";
     }
-
 }
