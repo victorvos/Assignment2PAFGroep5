@@ -3,7 +3,6 @@
  */
 public class Wagon implements TrainBuilder {
     private int numSeats;
-    private Wagon w; // Kan deze weg?
     private String wgNaam;
 
     //Standaard is de default value van de wagon 20
@@ -26,18 +25,13 @@ public class Wagon implements TrainBuilder {
     }
 
     @Override
-    public void delete() {
-
-    }
-
-    @Override
     public TrainBuilder select(int index) {
         return null;
     }
 
     @Override
     public int getNumSeats() {
-        return 0;
+        return numSeats;
     }
 
 //    public void setNumSeats(int numOfSeats) {

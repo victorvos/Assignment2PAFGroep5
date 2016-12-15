@@ -17,14 +17,18 @@ public class Trein implements TrainBuilder {
 
     }
 
-
-    public void add(Wagon w) {
+    public void addWagon(Wagon w) {
         trein.add(w);
     }
 
-    @Override
-    public void delete() {
-
+    public void deleteWagon(Wagon w) {
+        if (trein.contains(w)){
+            int o = trein.indexOf(w);
+            trein.remove(o);
+        }
+        else{
+            System.out.println("Wagon bestaat niet in deze trein");
+        }
     }
 
     @Override

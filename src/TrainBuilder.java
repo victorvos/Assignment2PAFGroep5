@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public interface TrainBuilder extends Application {
     ArrayList<Trein> treinen = new ArrayList();
     void draw();
-    void delete();
+
     TrainBuilder select(int index);
     int getNumSeats();
 }
