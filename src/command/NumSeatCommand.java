@@ -4,21 +4,38 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import domain.Trein;
+import domain.Wagon;
+import gui.Log;
 import interfaces.CommandExecute;
 
 public class NumSeatCommand implements CommandExecute {
-//Returns the number of seats in a train
+
+	Log l = new Log();
+
 	@Override
 	public void execute(String command) throws IOException {
-		String type = command.split("\\s+")[2];	
-		String typeName = command.split("\\s+")[3];	
-		if(type.equals("train")){
-			
+		String type = command.split("\\s+")[1];
+		String typeName = command.split("\\s+")[2];
+		Object thisObj = null;
+
+		if (typeName.equals("trein")){
+			thisObj = (Trein)thisObj;
 		}
-		else if(type.equals("wagon")){
-			
+		else if (typeName.equals("wagon")){
+			thisObj = (Wagon)thisObj;
 		}
 
+		try {
+			if (thisObj != null) {
+				thisObj.getNumSeats();
+			}
+			else {
+				l.makeLog("Error - getNumSeats Failed");
+			}
+		}
+		catch (Exception exception){
+			l.makeLog("Error - getNumSeats failed");
+		}
 	}
 
 }
