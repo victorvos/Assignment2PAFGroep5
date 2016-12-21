@@ -53,9 +53,6 @@ public class Trein implements Observable {
             int o = wagonnen.indexOf(w);
             wagonnen.remove(o);
         }
-        else{
-            System.out.println("Wagon bestaat niet in deze trein");
-        }
     }
 
     public void addWagon(Wagon wagon) {
