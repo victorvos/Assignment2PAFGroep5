@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class GetNumSeatsTrainCommand implements CommandExecute {
     private ArrayList<String> words;
-    private domain.Trein t;
+    private Trein t;
     private String commandReturn = "Error - Unknown command. Please type !help for a list of commands.";
 
     @Override
@@ -27,7 +27,7 @@ public class GetNumSeatsTrainCommand implements CommandExecute {
             commandReturn = "Please enter a train name";
         }
         boolean thisExists = false;
-        for(domain.Trein t: t.trainList()) {
+        for(Trein t: t.trainList()) {
             if(t.getTrnm().equals(train)) {
                 this.t=t;
                 thisExists = true;
