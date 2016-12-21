@@ -15,12 +15,14 @@ public class Trein implements Observable {
     private Log l;
     public ArrayList<Wagon> wagonnen = new ArrayList();
     private ArrayList<Observer> observers = new ArrayList<Observer>();
+    public ArrayList<Trein> alleTreinen = new ArrayList();
 
 
     public Trein(String trnm) throws IOException {
         l.makeLog("train: " + trnm + " has been created");
         this.trnm = trnm;
         this.notifyObservers();
+        alleTreinen.add(this);
     }
 
     public String getTrnm() {
