@@ -18,7 +18,7 @@ public class Trein implements Observable {
 
 
     public Trein(String trnm) throws IOException {
-        l.makeLog(l.logDate(), "train: " + trnm + " has been created");
+        l.makeLog("train: " + trnm + " has been created");
         this.trnm = trnm;
         this.notifyObservers();
     }
