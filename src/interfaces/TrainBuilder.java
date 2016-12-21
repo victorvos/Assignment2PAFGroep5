@@ -1,4 +1,7 @@
+package interfaces;
 import java.util.ArrayList;
+
+import domain.Trein;
 
 /**
  * Created by Eigenaar on 14-12-2016.

@@ -1,5 +1,9 @@
+package domain;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import gui.Log;
+import interfaces.TrainBuilder;
 /**
  * Created by Eigenaar on 14-12-2016.
  */

@@ -1,3 +1,6 @@
+package domain;
+import interfaces.TrainBuilder;
+
 /**
  * Created by Eigenaar on 14-12-2016.
  */

@@ -1,5 +1,11 @@
+package command;
 import java.io.IOException;
 import java.util.Scanner;
+
+import domain.Trein;
+import domain.Wagon;
+import gui.Log;
+import interfaces.Application;
 
 /**
  * Created by Eigenaar on 14-12-2016.
