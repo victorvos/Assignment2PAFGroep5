@@ -1,52 +1,91 @@
 package domain;
 import java.io.IOException;
 import java.util.ArrayList;
+import gui.Observable;
+import gui.Observer;
 
 import gui.Log;
-import interfaces.TrainBuilder;
+
 /**
  * Created by Eigenaar on 14-12-2016.
  */
-public class Trein implements TrainBuilder {
+public class Trein implements Observable {
+    private String trnm;
     private Wagon w;
     private Log l;
-    public ArrayList<Wagon> trein = new ArrayList();
+    public ArrayList<Wagon> wagonnen = new ArrayList();
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+
 
     public Trein(String trnm) throws IOException {
         l.makeLog(l.logDate(), "train: " + trnm + " has been created");
+        this.trnm = trnm;
+        this.notifyObservers();
     }
 
-    @Override
-    public void draw() {
-
+    public String getTrnm() {
+        return trnm;
     }
 
-    public void addWagon(Wagon w) {
-        trein.add(w);
+    public void setTrnm(String trnm) {
+        this.trnm = trnm;
     }
 
     public void deleteWagon(Wagon w) {
-        if (trein.contains(w)){
-            int o = trein.indexOf(w);
-            trein.remove(o);
+        if (wagonnen.contains(w)){
+            int o = wagonnen.indexOf(w);
+            wagonnen.remove(o);
         }
         else{
             System.out.println("Wagon bestaat niet in deze trein");
         }
     }
 
-    @Override
-    public TrainBuilder select(int index) {
-        Trein trein = treinen.get(index);
-        return trein;
+    public void addWagon(Wagon wagon) {
+        this.wagonnen.add(wagon);
+        notifyObservers();
     }
 
-    @Override
+    public void removeWagon(Wagon wagon) {
+        this.wagonnen.remove(wagon);
+    }
+
+    public ArrayList<Wagon> getWagons() {
+        return wagonnen;
+    }
+
+    public Boolean checkWagons(String id){
+        for (Wagon w : wagonnen){
+            if(w.getWgNaam().equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int getNumSeats() {
         int amountSeats = 0;
-        for (Wagon w : trein){
+        for (Wagon w : wagonnen){
             amountSeats += w.getNumSeats();
         }
         return amountSeats;
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (int i = 0; i < observers.size(); i++) {
+            Observer observer = (Observer) observers.get(i);
+            observer.refreshData();
+        }
+    }
+
+    @Override
+    public void register(Observer obs) {
+        observers.add(obs);
+    }
+
+    @Override
+    public void unRegister(Observer obs) {
+        observers.remove(obs);
     }
 }
