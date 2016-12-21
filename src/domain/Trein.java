@@ -13,14 +13,15 @@ public class Trein implements Observable {
     private String trnm;
     private Wagon w;
     private Log l;
+    private Type type;
     public ArrayList<Wagon> wagonnen = new ArrayList();
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     public ArrayList<Trein> alleTreinen = new ArrayList();
 
 
     public Trein(String trnm) throws IOException {
-        l.makeLog("train: " + trnm + " has been created");
         this.trnm = trnm;
+        this.type = new Type("Trein");
         this.notifyObservers();
         alleTreinen.add(this);
     }
@@ -31,6 +32,16 @@ public class Trein implements Observable {
 
     public ArrayList<Trein> trainList(){
     	return alleTreinen;
+    }
+
+    public ArrayList<Wagon> wagonList(){
+        ArrayList<Wagon> allWagonList = new ArrayList();
+        for (Trein t : alleTreinen){
+            for (Wagon w: t.getWagons()){
+                allWagonList.add(w);
+            }
+        }
+        return allWagonList;
     }
     
     public void setTrnm(String trnm) {

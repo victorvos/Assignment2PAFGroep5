@@ -16,10 +16,10 @@ public class Wagon implements Observable {
     //Je hebt dus bijvoorbeeld een command new wagon x;
     //--Deze wordt aangemaakt met een default numseats van 20 en zonder TREIN toegekend te hebben
 
-    public Wagon(String wagonNaam, Type tp) {
+    public Wagon(String wagonNaam) {
         this.wgNaam = wagonNaam;
         this.numSeats = 20;
-        this.type = tp;
+        this.type = new Type("Wagon");
     }
 
     public Wagon(String wagonNaam, int numSeats) {
