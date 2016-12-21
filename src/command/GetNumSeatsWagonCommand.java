@@ -4,6 +4,7 @@ package command;
  * Created by bluedog on 12/21/2016.
  */
 
+import domain.Trein;
 import domain.Wagon;
 import interfaces.CommandExecute;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 public class GetNumSeatsWagonCommand implements CommandExecute{
     private ArrayList<String> words;
     private Wagon w;
+    private Trein t;
     private String commandReturn = "Error - Unknown command. Please type !help for a list of commands.";
 
     @Override
@@ -28,7 +30,7 @@ public class GetNumSeatsWagonCommand implements CommandExecute{
             return;
         }
         boolean thisExists = false;
-        for(Wagon g: .getWagons()) {
+        for(Wagon g: t.wagonList() ) {
             if(wagonname.equals(g.getWgNaam())) {
                 thisExists=true;
                 w = g;
