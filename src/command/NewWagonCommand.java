@@ -22,6 +22,7 @@ public class NewWagonCommand implements CommandExecute {
 				Wagon wagon = new Wagon(wagonName);
 				l.makeLog("Wagon with name:"+wagonName+" created");
 				commandReturn = "Wagon with name "+wagonName+" created";
+				wagonList.add(wagon);
 			}
 			else{
 				commandReturn = "Invalid Command";
