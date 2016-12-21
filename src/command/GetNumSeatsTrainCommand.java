@@ -38,5 +38,9 @@ public class GetNumSeatsTrainCommand implements CommandExecute {
         }
         commandReturn = "number of seats in train " + train + ": " + t.getNumSeats();
     }
+    @Override
+    public String output() {
+        return commandReturn;
+    }
 }
 

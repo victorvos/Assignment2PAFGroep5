@@ -5,5 +5,6 @@ import java.io.IOException;
 public interface CommandExecute {
 
 	public void execute(String command) throws IOException;
+	public String output();
 	
 }

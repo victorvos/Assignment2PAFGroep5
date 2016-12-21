@@ -42,5 +42,11 @@ public class GetNumSeatsWagonCommand implements CommandExecute{
         }
         commandReturn = "number of seats in wagons " + w.getWgNaam() + ": " + w.getNumSeats();
     }
+
+    @Override
+    public String output() {
+        return commandReturn;
+    }
+
 }
 
