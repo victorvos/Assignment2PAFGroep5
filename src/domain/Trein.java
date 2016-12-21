@@ -29,6 +29,10 @@ public class Trein implements Observable {
         return trnm;
     }
 
+    public ArrayList<Trein> trainList(){
+    	return alleTreinen;
+    }
+    
     public void setTrnm(String trnm) {
         this.trnm = trnm;
     }

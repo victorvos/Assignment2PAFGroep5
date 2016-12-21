@@ -14,9 +14,9 @@ public class NewTrainCommand implements CommandExecute {
 	public void execute(String command) throws IOException {
 		String trainName = command.split("\\s+")[3];
 		Trein train = new Trein(trainName);
-		ArrayList<Trein> trainList = train.getList();
+		ArrayList<Trein> trainList =  train.trainList();
 		//Checkt of er al een trein bestaat met dezelfde naam
-		l.makeLog(l.logDate(), "Train with name:"+trainName+" created");
+		l.makeLog("Train with name:"+trainName+" created");
 		
 	}
 
