@@ -180,17 +180,22 @@ public class Controller implements Observer {
 
                     if (word[1].equals("wagon")) {
                         GetNumSeatsWagonCommand CommandLine = new GetNumSeatsWagonCommand();
-                        CommandLine.execute(word[2]);
+                        CommandLine.execute(word[2].substring(0, word[2].length() - 1));
                     }
                     else if (word[1].equals("train")) {
                     	GetNumSeatsTrainCommand CommandLine = new GetNumSeatsTrainCommand();
-                        CommandLine.execute(word[2]);
+                        CommandLine.execute(word[2].substring(0, word[2].length() - 1));
                     }
                 } else if (word[0].equals("add")) {
-                    AddWagonToTrain CommandLine = new AddWagonToTrain();
-                    CommandLine.setWagon(word[1]);
-                    CommandLine.setTrain(word[3].substring(0, word[3].length() - 1));
-                    CommandLine.execute(this);
+                    // Tijdelijk object
+                    Trein t = new Trein("temp");
+                    // Get Train Object by name
+                    t = t.getTrein(word[2]);
+                    // Return Wagon object by name
+                    Wagon w = t.getWagon(word[3].substring(0, word[2].length() - 1));
+
+                    // Add this wagon to train
+                    t.addWagon(w);
                 } else if (word[0].equals("delete")) {
                     if (word[1].equals("train")) {
                         DeleteTrain CommandLine = new DeleteTrain();
