@@ -151,7 +151,7 @@ public class Controller implements Observer {
                 || word[0].equals("delete") || word[0].equals("getnumseats")) {
             if (commandString.substring(commandString.length() - 1).equals(";")) {
                 if (word[0].equals("new")) {
-                    if (word[1].equals("Trein")) {
+                    if (word[1].equals("train")) {
                         Trein c = new Trein(word[2].substring(0, word[2].length() - 1));
                     }
 
@@ -179,13 +179,12 @@ public class Controller implements Observer {
                 else if (word[0].equals("getnumseats")) {
 
                     if (word[1].equals("wagon")) {
-                        Wagon w = new Wagon(word[2].substring(0, word[2].length() - 1));
-
-                        CommandLine.execute(this);
+                        GetNumSeatsWagonCommand CommandLine = new GetNumSeatsWagonCommand();
+                        CommandLine.execute(word[2]);
                     }
-                    else if (word[1].equals("Trein")) {
-                        Trein t = new Trein(word[2].substring(0, word[2].length() - 1));
-                        CommandLine.execute(this);
+                    else if (word[1].equals("train")) {
+                    	GetNumSeatsTrainCommand CommandLine = new GetNumSeatsTrainCommand();
+                        CommandLine.execute(word[2]);
                     }
                 } else if (word[0].equals("add")) {
                     AddWagonToTrain CommandLine = new AddWagonToTrain();
@@ -193,7 +192,7 @@ public class Controller implements Observer {
                     CommandLine.setTrain(word[3].substring(0, word[3].length() - 1));
                     CommandLine.execute(this);
                 } else if (word[0].equals("delete")) {
-                    if (word[1].equals("Trein")) {
+                    if (word[1].equals("train")) {
                         DeleteTrain CommandLine = new DeleteTrain();
                         CommandLine.setTrain(word[2].substring(0, word[2].length() - 1));
                         CommandLine.execute(this);

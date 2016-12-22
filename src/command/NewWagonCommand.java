@@ -34,7 +34,7 @@ public class NewWagonCommand implements CommandExecute {
 					wagonList.add(wagon);
 				}
 			} else {
-				commandReturn = "Invalid Command";
+				commandReturn = "Wagon with that name already exists!";
 			}
 		}
 

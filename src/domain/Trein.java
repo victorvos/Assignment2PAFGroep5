@@ -14,9 +14,9 @@ public class Trein implements Observable {
     private Wagon w;
     private Log l;
     private Type type;
-    public ArrayList<Wagon> wagonnen = new ArrayList();
+    public ArrayList<Wagon> wagonnen = new ArrayList<Wagon>();
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    public ArrayList<Trein> alleTreinen = new ArrayList();
+    public ArrayList<Trein> alleTreinen = new ArrayList<Trein>();
 
 
     public Trein(String trnm) throws IOException {
@@ -35,7 +35,7 @@ public class Trein implements Observable {
     }
 
     public ArrayList<Wagon> wagonList(){
-        ArrayList<Wagon> allWagonList = new ArrayList();
+        ArrayList<Wagon> allWagonList = new ArrayList<Wagon>();
         for (Trein t : alleTreinen){
             for (Wagon w: t.getWagons()){
                 allWagonList.add(w);
