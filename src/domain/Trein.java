@@ -49,10 +49,16 @@ public class Trein implements Observable {
     }
 
     public void deleteWagon(Wagon w) {
+
+        // Vang string op als parameter
+        // Check ofm wagon naam gekoppeld is aan trein
+        // Verwijder deze
+
         if (wagonnen.contains(w)){
             int o = wagonnen.indexOf(w);
             wagonnen.remove(o);
         }
+
     }
 
     public void addWagon(Wagon wagon) {
