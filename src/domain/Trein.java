@@ -49,16 +49,7 @@ public class Trein implements Observable {
     }
 
     public void deleteWagon(Wagon w) {
-
-        // Vang string op als parameter
-        // Check ofm wagon naam gekoppeld is aan trein
-        // Verwijder deze
-
-        if (wagonnen.contains(w)){
-            int o = wagonnen.indexOf(w);
-            wagonnen.remove(o);
-        }
-
+        w = null;
     }
 
     public void addWagon(Wagon wagon) {
@@ -66,8 +57,17 @@ public class Trein implements Observable {
         notifyObservers();
     }
 
-    public void removeWagon(Wagon wagon) {
-        this.wagonnen.remove(wagon);
+    public void removeWagon(String wgnnm) {
+        // Vang string op als parameter
+        // Check ofm wagon naam gekoppeld is aan trein
+        // Verwijder deze
+        for (Wagon w : wagonnen) {
+            if (wagonnen.contains(w.getWgNaam())) {
+                int i = wagonnen.indexOf(w);
+                wagonnen.remove(i);
+                deleteWagon(w);
+            }
+        }
     }
 
     public ArrayList<Wagon> getWagons() {
