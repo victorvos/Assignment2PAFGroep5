@@ -177,13 +177,14 @@ public class Controller implements Observer {
                 }
 
                 else if (word[0].equals("getnumseats")) {
-                    Seats CommandLine = new Seats();
+
                     if (word[1].equals("wagon")) {
-                        CommandLine.setWagon(word[2].substring(0, word[2].length() - 1));
+                        Wagon w = new Wagon(word[2].substring(0, word[2].length() - 1));
+
                         CommandLine.execute(this);
                     }
                     else if (word[1].equals("Trein")) {
-                        CommandLine.setTrain(word[2].substring(0, word[2].length() - 1));
+                        Trein t = new Trein(word[2].substring(0, word[2].length() - 1));
                         CommandLine.execute(this);
                     }
                 } else if (word[0].equals("add")) {
