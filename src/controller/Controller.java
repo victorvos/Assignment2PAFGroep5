@@ -192,7 +192,7 @@ public class Controller implements Observer {
                     // Get Train Object by name
                     t = t.getTrein(word[2]);
                     // Return Wagon object by name
-                    Wagon w = t.getWagon(word[3].substring(0, word[2].length() - 1));
+                    Wagon w = t.getWagon(word[3].substring(0, word[3].length() - 1));
 
                     // Add this wagon to train
                     t.addWagon(w);
