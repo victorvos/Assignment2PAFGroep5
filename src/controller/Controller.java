@@ -187,6 +187,8 @@ public class Controller implements Observer {
                         CommandLine.execute(word[2].substring(0, word[2].length() - 1));
                     }
                 } else if (word[0].equals("add")) {
+                    // Later voor debug
+                    System.out.print.ln(word.length);
                     // Tijdelijk object
                     Trein t = new Trein("temp");
                     // Get Train Object by name
