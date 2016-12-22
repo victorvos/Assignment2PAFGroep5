@@ -57,6 +57,16 @@ public class Trein implements Observable {
         notifyObservers();
     }
 
+    public Trein getTrein(String trnm){
+        Trein thisWagon = null;
+        for (Trein t : alleTreinen){
+            if(t.getTrnm().equals(trnm)){
+                thisWagon = t;
+            }
+        }
+        return thisWagon;
+    }
+
     public void removeWagon(String wgnnm) {
         // Vang string op als parameter
         // Check ofm wagon naam gekoppeld is aan trein
@@ -81,6 +91,16 @@ public class Trein implements Observable {
             }
         }
         return false;
+    }
+
+    public Wagon getWagon(String wagonnaam){
+        Wagon thisWagon = null;
+        for (Wagon w : wagonnen){
+            if(w.getWgNaam().equals(wagonnaam)){
+                thisWagon = w;
+            }
+        }
+        return thisWagon;
     }
 
     public int getNumSeats() {
