@@ -3,6 +3,7 @@ package gui;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 /*
@@ -47,7 +48,13 @@ public class GraphicView extends View {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void update(Controller controller) {
-		this.trains = controller.getTrains();
-		paint(this.getGraphics());
+		try {
+			Trein t = new Trein("temp");
+			this.trains = t.trainList();
+			paint(this.getGraphics());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

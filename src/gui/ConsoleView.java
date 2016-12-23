@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.GridLayout;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JTextArea;
@@ -58,10 +59,15 @@ public class ConsoleView extends View {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void update(Controller controller) {
+		try {
+			Trein t = new Trein("temp");
+			this.trains = t.trainList();
+			this.wagons = t.getWagons();
+			printText(trains, wagons);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		this.trains = controller.getTrains();
-		this.wagons = controller.getWagons();
-		printText(trains, wagons);
 
 	}
 }

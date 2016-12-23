@@ -59,8 +59,9 @@ public class Controller implements Observer {
     }
 
     public void split(String commandString) throws IOException {
-
+        System.out.println("Split Called");
         String[] receivedString = commandString.split(" ");
+
         if (receivedString[0].equals("new") || receivedString[0].equals("add") || receivedString[0].equals("remove")
                 || receivedString[0].equals("delete") || receivedString[0].equals("getnumseats")) {
             if (commandString.substring(commandString.length() - 1).equals(";")) {

@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.GridLayout;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,11 +11,10 @@ import domain.*;
 
 
 public class Main {
-	public static void main(String[] args)
-	{	
+	public static void main(String[] args) throws IOException {
 		JFrame frame1 = new JFrame();
 		frame1.setLayout(new GridLayout(2,1));
-		frame1.setSize(1000, 700);
+		frame1.setSize(1500, 1200);
 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame1.setVisible(true);
 		
@@ -23,9 +23,7 @@ public class Main {
 		panel1.setLayout(new GridLayout(1,1));
 		panel2.setLayout(new GridLayout(2,1));
 
-		
 
-		
 		View v1 = new GraphicView();
 		View v2 = new ConsoleView();
 		View v3 = new LogView();
@@ -62,5 +60,7 @@ public class Main {
 //		t1.addWagon(w1);
 //		t1.addWagon(w2);
 //		t1.addWagon(w3);
+
+		c.split("new train tr1;");
 	}
 }

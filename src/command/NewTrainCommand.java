@@ -21,6 +21,7 @@ public class NewTrainCommand implements CommandExecute {
 			if (!t.getTrnm().equals(trainName)){
 				Trein train = new Trein(trainName);
 				commandReturn = "Train with name:"+trainName+" created";
+				System.out.println("Train added");
 				l.makeLog("Train with name:"+trainName+" created");
 			}
 			else{
