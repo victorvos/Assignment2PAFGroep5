@@ -146,72 +146,72 @@ public class Controller implements Observer {
                 writer.write(commandString);
             }
         }
-        String[] word = commandString.split(" ");
-        if (word[0].equals("new") || word[0].equals("add") || word[0].equals("remove")
-                || word[0].equals("delete") || word[0].equals("getnumseats")) {
+        String[] receivedString = commandString.split(" ");
+        if (receivedString[0].equals("new") || receivedString[0].equals("add") || receivedString[0].equals("remove")
+                || receivedString[0].equals("delete") || receivedString[0].equals("getnumseats")) {
             if (commandString.substring(commandString.length() - 1).equals(";")) {
-                if (word[0].equals("new")) {
-                    if (word[1].equals("train")) {
-                        Trein c = new Trein(word[2].substring(0, word[2].length() - 1));
+                if (receivedString[0].equals("new")) {
+                    if (receivedString[1].equals("train")) {
+                        Trein c = new Trein(receivedString[2].substring(0, receivedString[2].length() - 1));
                     }
 
                     else {
-                        if (word[1].equals("wagon")) {
+                        if (receivedString[1].equals("wagon")) {
                             try {
-                                if (word[3].equals("numseats")) {
-                                    Wagon w = new Wagon(word[2]);
-                                    w.setNumSeats(Integer.parseInt(word[2].substring(0, word[2].length() - 1)));
+                                if (receivedString[3].equals("numseats")) {
+                                    Wagon w = new Wagon(receivedString[2]);
+                                    w.setNumSeats(Integer.parseInt(receivedString[2].substring(0, receivedString[2].length() - 1)));
                                 }
                             }
                             catch(Exception e){
-                                Wagon w = new Wagon(word[2]);
-                                w.setNumSeats(Integer.parseInt(word[2].substring(0, word[2].length() - 1)));
+                                Wagon w = new Wagon(receivedString[2]);
+                                w.setNumSeats(Integer.parseInt(receivedString[2].substring(0, receivedString[2].length() - 1)));
                             }
                         }
 
-                        else if (word[1].equals("endwagon")) {
-                            Wagon w = new Wagon(word[2]);
-                            w.setNumSeats(Integer.parseInt(word[2].substring(0, word[2].length() - 1)));
+                        else if (receivedString[1].equals("endwagon")) {
+                            Wagon w = new Wagon(receivedString[2]);
+                            w.setNumSeats(Integer.parseInt(receivedString[2].substring(0, receivedString[2].length() - 1)));
                         }
                     }
                 }
 
-                else if (word[0].equals("getnumseats")) {
+                else if (receivedString[0].equals("getnumseats")) {
 
-                    if (word[1].equals("wagon")) {
+                    if (receivedString[1].equals("wagon")) {
                         GetNumSeatsWagonCommand CommandLine = new GetNumSeatsWagonCommand();
-                        CommandLine.execute(word[2].substring(0, word[2].length() - 1));
+                        CommandLine.execute(receivedString[2].substring(0, receivedString[2].length() - 1));
                     }
-                    else if (word[1].equals("train")) {
+                    else if (receivedString[1].equals("train")) {
                     	GetNumSeatsTrainCommand CommandLine = new GetNumSeatsTrainCommand();
-                        CommandLine.execute(word[2].substring(0, word[2].length() - 1));
+                        CommandLine.execute(receivedString[2].substring(0, receivedString[2].length() - 1));
                     }
-                } else if (word[0].equals("add")) {
+                } else if (receivedString[0].equals("add")) {
                     // Later voor debug
-                    System.out.print.ln(word.length);
+                    System.out.print.ln(receivedString.length);
                     // Tijdelijk object
                     Trein t = new Trein("temp");
                     // Get Train Object by name
-                    t = t.getTrein(word[2]);
+                    t = t.getTrein(receivedString[2]);
                     // Return Wagon object by name
-                    Wagon w = t.getWagon(word[3].substring(0, word[3].length() - 1));
+                    Wagon w = t.getWagon(receivedString[3].substring(0, receivedString[3].length() - 1));
 
                     // Add this wagon to train
                     t.addWagon(w);
-                } else if (word[0].equals("delete")) {
-                    if (word[1].equals("train")) {
+                } else if (receivedString[0].equals("delete")) {
+                    if (receivedString[1].equals("train")) {
                         DeleteTrain CommandLine = new DeleteTrain();
-                        CommandLine.setTrain(word[2].substring(0, word[2].length() - 1));
+                        CommandLine.setTrain(receivedString[2].substring(0, receivedString[2].length() - 1));
                         CommandLine.execute(this);
-                    } else if (word[1].equals("wagon")) {
+                    } else if (receivedString[1].equals("wagon")) {
                         DeleteWagon CommandLine = new DeleteWagon();
-                        CommandLine.setWagon(word[2].substring(0, word[2].length() - 1));
+                        CommandLine.setWagon(receivedString[2].substring(0, receivedString[2].length() - 1));
                         CommandLine.execute(this);
                     }
-                } else if (word[0].equals("remove")) {
+                } else if (receivedString[0].equals("remove")) {
                     RemoveWagonFromTrain CommandLine = new RemoveWagonFromTrain();
-                    CommandLine.setWagon(word[1]);
-                    CommandLine.setTrain(word[3].substring(0, word[3].length() - 1));
+                    CommandLine.setWagon(receivedString[1]);
+                    CommandLine.setTrain(receivedString[3].substring(0, receivedString[3].length() - 1));
                     CommandLine.execute(this);
 
                 }
