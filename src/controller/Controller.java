@@ -182,32 +182,11 @@ public class Controller implements Observer {
                     }
                 } else if (receivedString[0].equals("remove")) {
                     DeleteWagonCommand CommandLine = new DeleteWagonCommand();
-                    Trein t = new Trein(word[3].substring(0, word[3].length() - 1));
-                    RemoveWagonFromTrain CommandLine = new RemoveWagonFromTrain();
-                    CommandLine.
-                    Wagon w = new Wagon(word[1]);
-                    t.addWagon(w);
+                    CommandLine.execute(wagonNa;
+
+                    receivedString[1], receivedString[3]
 
 
-                    CommandLine.execute(word[1]);
-                    CommandLine.setWagon(word[1]);
-                    CommandLine.setTrain(word[3].substring(0, word[3].length() - 1));
-                    CommandLine.execute(this);
-
-//                    else if (word[0].equals("remove")) {
-//                        for (Wagon w : getWagons()) {
-//                            if (w.getWgNaam() == word[1]) {
-//                                Wagon wagon = w;
-//                                removeWagon(wagon);
-//                            }
-//                        }
-//                        for (Trein t: getTrains()) {
-//                            if (t.getTrnm() == word[3]) {
-//                                Trein trein = t;
-//                            }
-//                        }
-//
-//                    }
 
                 }
             } else

@@ -4,6 +4,7 @@ import domain.Trein;
 import domain.Wagon;
 import interfaces.CommandExecute;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -15,20 +16,9 @@ public class DeleteWagonCommand implements CommandExecute {
     private Trein t;
     private String commandReturn = "Error - Unknown command. Please type !help for a list of commands.";
 
-    public void execute(String command) {
-        String s;
-
-        try {
-            s = input.get(2);
-        } catch(Exception e) {
-            s = "";
-        }
-
-        if(s.equals("")) {
-            commandReturn = "type a wagon name in";
-            return;
-        }
+    public void execute(String command, String command2) throws IOException {
         boolean b = false;
+        Trein t = new Trein("temp");
         for(Wagon w	: t.getWagons()) {
             if(w.getWgNaam().equals(s)) {
                 t.removeWagon(w.getWgNaam());
