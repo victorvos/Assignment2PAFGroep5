@@ -7,8 +7,6 @@ import javax.swing.JPanel;
 
 import domain.*;
 
-
-
 /*import logic.Controller;
 import logic.LogWriter;
 import logic.Writer;*/

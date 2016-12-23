@@ -31,7 +31,7 @@ public class DeleteWagonCommand implements CommandExecute {
         boolean b = false;
         for(Wagon w	: t.getWagons()) {
             if(w.getWgNaam().equals(s)) {
-                t.deleteWagon(w);
+                t.removeWagon(w.getWgNaam());
                 commandReturn = "Wagon " +w.getWgNaam()+" removed";
                 b = true;
                 return;
