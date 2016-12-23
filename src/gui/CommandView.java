@@ -4,6 +4,7 @@ import controller.Controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -14,7 +15,7 @@ import javax.swing.JTextField;
 /*import logic.Controller;*/
 
 public class CommandView extends View implements ActionListener {
-	/*Controller controller;*/
+	Controller controller;
 	JPanel executepanel;
 	JTextArea txtarea;
 	JTextField input;
@@ -52,7 +53,11 @@ public class CommandView extends View implements ActionListener {
 		{
 			if(controller != null)
 			{
-				controller.split(input.getText());
+				try {
+					controller.split(input.getText());
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		}
 	}

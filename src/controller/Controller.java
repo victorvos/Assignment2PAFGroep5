@@ -28,6 +28,18 @@ public class Controller implements Observer {
     private ArrayList<CommandLine> CommandLine;
     private ArrayList<String> logcommands;
 
+    public Controller() {
+        this.views = new ArrayList<View>();
+        this.CommandLine = new ArrayList<CommandLine>();
+        this.logcommands = new ArrayList<String>();
+//        this.setLogcommands(new ArrayList<String>());
+    }
+
+//    public Controller(ArrayList<CommandLine> commands) {
+//        this();
+//        this.CommandLine = commands;
+//    }
+
     public void addLogcommand(String logcommand) {
         logcommands.add(logcommand);
     }
