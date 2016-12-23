@@ -16,24 +16,16 @@ public class NewWagonCommand implements CommandExecute {
 
 	@Override
 	public void execute(String command) throws IOException {
-		String wagonName = command.split("\\s+")[2];
+		String wagonName = command;
 		ArrayList<Wagon> wagonList = t.wagonList();
 		for (Wagon w : wagonList) {
 			if (!w.getWgNaam().equals(wagonName)) {
-				if (command.split("\\s+")[3] == null) {//Weet niet of dit werkt, moet in ieder geval checken of het out of bounds is.
 					Wagon wagon = new Wagon(wagonName);
 					l.makeLog("Wagon with name:" + wagonName + " created with 20 seats");
 					commandReturn = "Wagon with name " + wagonName + " created with 20 seats";
 					wagonList.add(wagon);
-				} else {
-					String numseatsString = command.split("\\s+")[3];
-					int numseats = Integer.parseInt(numseatsString);
-					Wagon wagon = new Wagon(wagonName, numseats);
-					l.makeLog("Wagon with name:" + wagonName + " created with " + numseats + " seats");
-					commandReturn = "Wagon with name:" + wagonName + " created with " + numseats + " seats";
-					wagonList.add(wagon);
 				}
-			} else {
+			 else {
 				commandReturn = "Wagon with that name already exists!";
 			}
 		}
