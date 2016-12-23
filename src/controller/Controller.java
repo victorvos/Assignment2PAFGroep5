@@ -187,6 +187,11 @@ public class Controller implements Observer {
                         CommandLine.execute(word[2].substring(0, word[2].length() - 1));
                     }
                 } else if (word[0].equals("add")) {
+<<<<<<< HEAD
+=======
+                    // Later voor debug
+                    System.out.println(word.length);
+>>>>>>> 7b9f0d8acbd48bbb4ad131922071702b4becc580
                     // Tijdelijk object
                     Trein t = new Trein("temp");
                     // Get Train Object by name
@@ -196,7 +201,26 @@ public class Controller implements Observer {
 
                     // Add this wagon to train
                     t.addWagon(w);
+<<<<<<< HEAD
                 } else if (word[0].equals("delete")) {
+=======
+                }
+                else if (word[0].equals("remove")) {
+                    for (Wagon w: getWagons()) {
+                        if (w.getWgNaam() == word[1]) {
+                            Wagon wagon = w;
+                            removeWagon(wagon);
+                        }
+                    }
+                    for (Trein t: getTrains()) {
+                        if (t.getTrnm() == word[3]) {
+                            Trein trein = t;
+                        }
+                    }
+
+                }
+                else if (word[0].equals("delete")) {
+>>>>>>> 7b9f0d8acbd48bbb4ad131922071702b4becc580
                     if (word[1].equals("train")) {
                         DeleteTrain CommandLine = new DeleteTrain();
                         CommandLine.setTrain(word[2].substring(0, word[2].length() - 1));
