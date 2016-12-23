@@ -90,35 +90,7 @@ public class Controller implements Observer {
         views.add(view);
     }
 
-    public void removeView(View view) {
-        if (views.contains(view)) {
-            views.remove(view);
-        }
-    }
-
-    public void addTrain(Trein Trein) {
-        trains.add(Trein);
-        refreshData();
-    }
-
-    public void removeTrain(Trein Trein) {
-        if (trains.contains(Trein)) {
-            trains.remove(Trein);
-            refreshData();
-        }
-    }
-
-    public void addWagon(Wagon wagon) {
-        wagons.add(wagon);
-        refreshData();
-    }
-
-    public void removeWagon(Wagon wagon) {
-        if (wagons.contains(wagon)) {
-            wagons.remove(wagon);
-            refreshData();
-        }
-    }
+    
 
 //    public void addWriter(Writer writer) {
 //        writers.add(writer);
@@ -160,7 +132,7 @@ public class Controller implements Observer {
                             try {
                                 if (receivedString[3].equals("numseats")) {
                                     Wagon w = new Wagon(receivedString[2]);
-                                    w.setNumSeats(Integer.parseInt(receivedString[2].substring(0, receivedString[2].length() - 1)));
+                                    w.setNumSeats(Integer.parseInt(receivedString[4]));
                                 }
                             }
                             catch(Exception e){
