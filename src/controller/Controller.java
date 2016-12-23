@@ -47,25 +47,8 @@ public class Controller implements Observer {
                     if (receivedString[1].equals("train")) {
                         Trein c = new Trein(receivedString[2].substring(0, receivedString[2].length() - 1));
                     }
-
-                    else {
-                        if (receivedString[1].equals("wagon")) {
-                            try {
-                                if (receivedString[3].equals("numseats")) {
-                                    Wagon w = new Wagon(receivedString[2]);
-                                    w.setNumSeats(Integer.parseInt(receivedString[4]));
-                                }
-                            }
-                            catch(Exception e){
-                                Wagon w = new Wagon(receivedString[2]);
-                                w.setNumSeats(Integer.parseInt(receivedString[2].substring(0, receivedString[2].length() - 1)));
-                            }
-                        }
-
-                        else if (receivedString[1].equals("endwagon")) {
-                            Wagon w = new Wagon(receivedString[2]);
-                            w.setNumSeats(Integer.parseInt(receivedString[2].substring(0, receivedString[2].length() - 1)));
-                        }
+                    else if (receivedString[1].equals("wagon")) {
+                        Wagon w = new Wagon(receivedString[2].substring(0, receivedString[2].length() - 1));
                     }
                 }
 
@@ -85,9 +68,9 @@ public class Controller implements Observer {
                     // Tijdelijk object
                     Trein t = new Trein("temp");
                     // Get Train Object by name
-                    t = t.getTrein(receivedString[2]);
+                    t = t.getTrein(receivedString[3].substring(0, receivedString[3].length() - 1));
                     // Return Wagon object by name
-                    Wagon w = t.getWagon(receivedString[3].substring(0, receivedString[3].length() - 1));
+                    Wagon w = t.getWagon(receivedString[1]);
 
                     // Add this wagon to train
                     t.addWagon(w);
@@ -96,7 +79,7 @@ public class Controller implements Observer {
                         // Tijdelijk object
                         Trein t = new Trein("temp");
                         // Get Train Object by name
-                        t = t.getTrein(receivedString[2]);
+                        t = t.getTrein(receivedString[1]);
                         // Remove from list alletreinen
                         t.removeTrain(t.getTrnm());
 
