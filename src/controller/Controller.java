@@ -172,22 +172,24 @@ public class Controller implements Observer {
                     t.addWagon(w);
                 } else if (receivedString[0].equals("delete")) {
                     if (receivedString[1].equals("train")) {
-                        DeleteTrain CommandLine = new DeleteTrain();
-                        CommandLine.setTrain(receivedString[2].substring(0, receivedString[2].length() - 1));
-                        CommandLine.execute(this);
+                        // Tijdelijk object
+                        Trein t = new Trein("temp");
+                        // Get Train Object by name
+                        t = t.getTrein(receivedString[2]);
+                        // Remove from list alletreinen
+                        t.removeTrain(t.getTrnm());
+
+
                     } else if (receivedString[1].equals("wagon")) {
-                        DeleteWagon CommandLine = new DeleteWagon();
-                        CommandLine.setWagon(receivedString[2].substring(0, receivedString[2].length() - 1));
-                        CommandLine.execute(this);
+                        Trein t = new Trein("temp");
+                        // Remove wagon by ID
+                        t.removeWagon(receivedString[3]);
+
                     }
                 } else if (receivedString[0].equals("remove")) {
                     DeleteWagonCommand CommandLine = new DeleteWagonCommand();
-                    CommandLine.execute(wagonNa;
-
-                    receivedString[1], receivedString[3]
-
-
-
+                    String wagonIDandTrainID = receivedString[1] + " "+ receivedString[3];
+                    CommandLine.execute(wagonIDandTrainID);
                 }
             } else
                 JOptionPane.showMessageDialog(null,

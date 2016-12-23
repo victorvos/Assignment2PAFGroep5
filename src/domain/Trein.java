@@ -72,13 +72,29 @@ public class Trein implements Observable {
         // Check ofm wagon naam gekoppeld is aan trein
         // Verwijder deze
         for (Wagon w : wagonnen) {
-            if (wagonnen.contains(w.getWgNaam())) {
+            if(w.getWgNaam().equals(wgnnm)){
                 int i = wagonnen.indexOf(w);
                 wagonnen.remove(i);
                 deleteWagon(w);
             }
         }
     }
+
+    public void removeTrain(String trnm){
+        for (Trein t : alleTreinen) {
+            if(t.getTrnm().equals(trnm)){
+                int i = alleTreinen.indexOf(t);
+                alleTreinen.remove(i);
+                deleteTrain(t);
+            }
+        }
+    }
+
+
+    public void deleteTrain(Trein t) {
+        t = null;
+    }
+
 
     public ArrayList<Wagon> getWagons() {
         return wagonnen;

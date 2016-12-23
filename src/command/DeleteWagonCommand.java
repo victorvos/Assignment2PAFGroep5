@@ -16,19 +16,24 @@ public class DeleteWagonCommand implements CommandExecute {
     private Trein t;
     private String commandReturn = "Error - Unknown command. Please type !help for a list of commands.";
 
-    public void execute(String command, String command2) throws IOException {
-        boolean b = false;
+    public void execute(String command) throws IOException {
+        String wagonName = command.split("\\s+")[0];
+        String trainName = command.split("\\s+")[1];
+
+        boolean isDeleted = false;
         Trein t = new Trein("temp");
+        t = t.getTrein(trainName);
+
         for(Wagon w	: t.getWagons()) {
-            if(w.getWgNaam().equals(s)) {
+            if(w.getWgNaam().equals(wagonName)) {
                 t.removeWagon(w.getWgNaam());
                 commandReturn = "Wagon " +w.getWgNaam()+" removed";
-                b = true;
+                isDeleted = true;
                 return;
             }
         }
-        if(!b){
-            commandReturn = "Wagon does not exist";
+        if(!isDeleted){
+            commandReturn = "Wagon does not exist and could not be deleted!";
             return;
         }
     }
