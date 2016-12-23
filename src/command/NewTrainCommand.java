@@ -14,7 +14,7 @@ public class NewTrainCommand implements CommandExecute {
 	private String commandReturn = "Error - Unknown command. Please type !help for a list of commands.";
 	@Override
 	public void execute(String command) throws IOException {
-		String trainName = command.split("\\s+")[3];
+		String trainName = command;
 		ArrayList<Trein> trainList = t.trainList();
 		//Checkt of er al een trein bestaat met dezelfde naam
 		for (Trein t : trainList){
