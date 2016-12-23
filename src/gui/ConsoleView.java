@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 /*import logic.Controller;*/
+import controller.Controller;
 import domain.Trein;
 import domain.Wagon;
 
@@ -54,7 +55,7 @@ public class ConsoleView extends View {
 				+ trainsOutput);
 	}
 
-	/*@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Override
 	public void update(Controller controller) {
 
@@ -62,5 +63,5 @@ public class ConsoleView extends View {
 		this.wagons = controller.getWagons();
 		printText(trains, wagons);
 
-	}*/
+	}
 }

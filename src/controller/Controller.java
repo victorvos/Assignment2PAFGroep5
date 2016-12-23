@@ -3,6 +3,7 @@ package controller;
 // GUI
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -35,6 +36,14 @@ public class Controller implements Observer {
         if (logcommands.contains(logcommand)) {
             logcommands.remove(logcommand);
         }
+    }
+
+    public void addView(View view) {
+        views.add(view);
+    }
+
+    public ArrayList<View> getViews() {
+        return views;
     }
 
     public void split(String commandString) throws IOException {

@@ -24,13 +24,14 @@ public class Main {
 		panel2.setLayout(new GridLayout(2,1));
 
 		
-		Controller c = new Controller();
+
 		
 		View v1 = new GraphicView();
 		View v2 = new ConsoleView();
 		View v3 = new LogView();
 		CommandView v4 = new CommandView();
-		
+
+		Controller c = new Controller();
 		v4.setController(c);
 		
 		panel1.add(v1);
@@ -40,27 +41,26 @@ public class Main {
 		frame1.add(panel1);
 		frame1.add(panel2);
 		
-		c.addWriter(writer);
 		c.addView(v1);
 		c.addView(v2);
 		c.addView(v3);
 		c.addView(v4);
 
-		Train t1 = new NormalTrain("Train1");
-		c.addTrain(t1);
-		
-		t1.addObserver(c);
-		
-		Wagon w1 = new Locomotive("Locomotive Train1");
-		Wagon w2 = new NormalWagon("Normalw");
-		Wagon w3 = new EndWagon("Endw");
-		
-		c.addWagon(w1);
-		c.addWagon(w2);
-		c.addWagon(w3);
-		
-		t1.addWagon(w1);
-		t1.addWagon(w2);
-		t1.addWagon(w3);
+//		Train t1 = new NormalTrain("Train1");
+//		c.addTrain(t1);
+//
+//		t1.addObserver(c);
+//
+//		Wagon w1 = new Locomotive("Locomotive Train1");
+//		Wagon w2 = new NormalWagon("Normalw");
+//		Wagon w3 = new EndWagon("Endw");
+//
+//		c.addWagon(w1);
+//		c.addWagon(w2);
+//		c.addWagon(w3);
+//
+//		t1.addWagon(w1);
+//		t1.addWagon(w2);
+//		t1.addWagon(w3);
 	}
 }

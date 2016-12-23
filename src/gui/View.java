@@ -1,10 +1,9 @@
 package gui;
 
-import java.util.ArrayList;
+
 import javax.swing.*;
-import domain.Trein;
-/*import logic.Controller;
-import logic.Subject;*/
+
+import controller.Controller;
 
 public abstract class View extends JPanel {
 	public View()
@@ -13,5 +12,5 @@ public abstract class View extends JPanel {
 		this.setVisible(true);
 	}
 	
-	/*public abstract void update(Controller controller);*/
+	public abstract void update(Controller controller);
 }

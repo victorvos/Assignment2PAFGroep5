@@ -1,5 +1,7 @@
 package gui;
 
+import controller.Controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -39,24 +41,24 @@ public class CommandView extends View implements ActionListener {
 		this.setSize(350,250);
 	}
 	
-/*	public void setController(Controller controller)
+	public void setController(Controller controller)
 	{
 		this.controller = controller;
-	}*/
+	}
 	
 	public void actionPerformed(ActionEvent e) {
 		// en hier het gedeelte om via een command iets toe te voegen of te verwijderen etc.
-	/*	if(e.getSource() == execute)
+		if(e.getSource() == execute)
 		{
 			if(controller != null)
 			{
 				controller.split(input.getText());
 			}
-		}*/
+		}
 	}
 
-	/*@Override
+	@Override
 	public void update(Controller controller) {
 		//TODO
-	}*/
+	}
 }

@@ -8,6 +8,7 @@ import java.util.ConcurrentModificationException;
 /*
 import logic.Controller;*/
 
+import controller.Controller;
 import domain.Trein;
 import domain.Wagon;
 
@@ -43,10 +44,10 @@ public class GraphicView extends View {
 		}
 	}
 
-	/*@SuppressWarnings("unchecked")
-	@Override*/
-	/*public void update(Controller controller) {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void update(Controller controller) {
 		this.trains = controller.getTrains();
 		paint(this.getGraphics());
-	}*/
+	}
 }

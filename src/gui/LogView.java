@@ -1,5 +1,7 @@
 package gui;
 
+import controller.Controller;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -41,10 +43,10 @@ public class LogView extends View {
 		}
 	}
 	
-	/*@Override
+	@Override
 	public void update(Controller controller) {
-				this.commands = controller.getLogcommands();
-				printLog(commands);
-	}*/
+//				this.commands = controller.getLogcommands();
+//				printLog(commands);
+	}
 
 }
