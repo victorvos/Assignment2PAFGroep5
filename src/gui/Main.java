@@ -5,11 +5,9 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controller.Controller;
 import domain.*;
 
-/*import logic.Controller;
-import logic.LogWriter;
-import logic.Writer;*/
 
 public class Main {
 	public static void main(String[] args)
@@ -25,20 +23,19 @@ public class Main {
 		panel1.setLayout(new GridLayout(1,1));
 		panel2.setLayout(new GridLayout(2,1));
 
-		/*Writer writer = new LogWriter();
 		
-		Controller c = new Controller();*/
+		Controller c = new Controller();
 		
 		View v1 = new GraphicView();
 		View v2 = new ConsoleView();
-		/*View v3 = new LogView();*/
+		View v3 = new LogView();
 		CommandView v4 = new CommandView();
 		
-		/*v4.setController(c);*/
+		v4.setController(c);
 		
 		panel1.add(v1);
 		panel2.add(v2);
-		/*panel2.add(v3);*/
+		panel2.add(v3);
 		panel2.add(v4);
 		frame1.add(panel1);
 		frame1.add(panel2);
