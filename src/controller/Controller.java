@@ -130,8 +130,8 @@ public class Controller implements Observer {
 
     @Override
     public void refreshData() {
-//        for (View view : views) {
-//            view.update(this);
-//        }
+        for (View view : views) {
+            view.update(this);
+        }
     }
 }

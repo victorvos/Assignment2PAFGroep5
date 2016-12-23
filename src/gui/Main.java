@@ -44,22 +44,16 @@ public class Main {
 		c.addView(v3);
 		c.addView(v4);
 
-//		Train t1 = new NormalTrain("Train1");
-//		c.addTrain(t1);
-//
-//		t1.addObserver(c);
-//
-//		Wagon w1 = new Locomotive("Locomotive Train1");
-//		Wagon w2 = new NormalWagon("Normalw");
-//		Wagon w3 = new EndWagon("Endw");
-//
-//		c.addWagon(w1);
-//		c.addWagon(w2);
-//		c.addWagon(w3);
-//
-//		t1.addWagon(w1);
-//		t1.addWagon(w2);
-//		t1.addWagon(w3);
+
+		Trein t = new Trein("HELLO WORLD");
+
+		Wagon w = new Wagon("WAGON");
+
+
+		t.addWagon(w);
+
+		c.refreshData();
+
 
 		c.split("new train tr1;");
 	}
