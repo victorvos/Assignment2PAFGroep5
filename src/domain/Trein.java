@@ -14,9 +14,9 @@ public class Trein implements Observable {
     private Wagon w;
     private Log l;
     private Type type;
-    public ArrayList<Wagon> wagonnen = new ArrayList();
+    public ArrayList<Wagon> wagonnen = new ArrayList<Wagon>();
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    public ArrayList<Trein> alleTreinen = new ArrayList();
+    public ArrayList<Trein> alleTreinen = new ArrayList<Trein>();
 
 
     public Trein(String trnm) throws IOException {
@@ -35,7 +35,7 @@ public class Trein implements Observable {
     }
 
     public ArrayList<Wagon> wagonList(){
-        ArrayList<Wagon> allWagonList = new ArrayList();
+        ArrayList<Wagon> allWagonList = new ArrayList<Wagon>();
         for (Trein t : alleTreinen){
             for (Wagon w: t.getWagons()){
                 allWagonList.add(w);
@@ -49,10 +49,7 @@ public class Trein implements Observable {
     }
 
     public void deleteWagon(Wagon w) {
-        if (wagonnen.contains(w)){
-            int o = wagonnen.indexOf(w);
-            wagonnen.remove(o);
-        }
+        w = null;
     }
 
     public void addWagon(Wagon wagon) {
@@ -60,8 +57,27 @@ public class Trein implements Observable {
         notifyObservers();
     }
 
-    public void removeWagon(Wagon wagon) {
-        this.wagonnen.remove(wagon);
+    public Trein getTrein(String trnm){
+        Trein thisWagon = null;
+        for (Trein t : alleTreinen){
+            if(t.getTrnm().equals(trnm)){
+                thisWagon = t;
+            }
+        }
+        return thisWagon;
+    }
+
+    public void removeWagon(String wgnnm) {
+        // Vang string op als parameter
+        // Check ofm wagon naam gekoppeld is aan trein
+        // Verwijder deze
+        for (Wagon w : wagonnen) {
+            if (wagonnen.contains(w.getWgNaam())) {
+                int i = wagonnen.indexOf(w);
+                wagonnen.remove(i);
+                deleteWagon(w);
+            }
+        }
     }
 
     public ArrayList<Wagon> getWagons() {
@@ -75,6 +91,16 @@ public class Trein implements Observable {
             }
         }
         return false;
+    }
+
+    public Wagon getWagon(String wagonnaam){
+        Wagon thisWagon = null;
+        for (Wagon w : wagonnen){
+            if(w.getWgNaam().equals(wagonnaam)){
+                thisWagon = w;
+            }
+        }
+        return thisWagon;
     }
 
     public int getNumSeats() {

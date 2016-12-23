@@ -5,39 +5,37 @@ package command;
  */
 
 import domain.Trein;
-import domain.Wagon;
+import gui.Log;
 import interfaces.CommandExecute;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GetNumSeatsTrainCommand implements CommandExecute {
-    private ArrayList<String> words;
+    private Log l;
     private Trein t;
     private String commandReturn = "Error - Unknown command. Please type !help for a list of commands.";
 
     @Override
-    public void execute(String command) {
-        String train;
-        try {
-            train = words.get(2);
-        } catch (Exception e) {
-            train ="";
-        }
-        if(train.equals("")) {
-            commandReturn = "Please enter a train name";
-        }
-        boolean thisExists = false;
-        for(Trein t: t.trainList()) {
-            if(t.getTrnm().equals(train)) {
-                this.t=t;
-                thisExists = true;
-            }
-        }
-        if(!thisExists) {
-            commandReturn = "train " + train + "doesn't exist";
-        }
-        commandReturn = "number of seats in train " + train + ": " + t.getNumSeats();
-    }
+    public void execute(String command) throws IOException {
+		String trainName = command;
+		ArrayList<Trein> trainList = t.trainList();
+		boolean trainExists = false;
+		for (Trein t : trainList) {
+			if (t.getTrnm().equals(trainName)) {
+				trainExists = true;
+			}
+		}
+		if (!trainExists) {
+			commandReturn = "No train found named " + trainName;
+		} else if (trainExists) {
+			int numseats = t.getNumSeats();
+			l.makeLog("Train named " + trainName + " has " + numseats + " seats.");
+			commandReturn = "Train named " + trainName + " has " + numseats + " seats.";
+		}
+	}
+    
+    
     @Override
     public String output() {
         return commandReturn;
