@@ -7,10 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /*import logic.Controller;*/
 
@@ -40,6 +37,9 @@ public class CommandView extends View implements ActionListener {
 		
 		this.add(executepanel);
 		this.setSize(350,250);
+
+//		JRootPane rootPane = SwingUtilities.getRootPane(execute);
+//		rootPane.setDefaultButton(execute);
 	}
 	
 	public void setController(Controller controller)

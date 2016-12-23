@@ -6,8 +6,6 @@ import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
-/*
-import logic.Controller;*/
 
 import controller.Controller;
 import domain.Trein;
